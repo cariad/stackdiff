@@ -1,2 +1,3 @@
-# changedifferently
-Visualises the changes described by an Amazon Web Services CloudFormation change set
+# stackdiff
+
+Visualises the changes described by an Amazon Web Services CloudFormation stack change set

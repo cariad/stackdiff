@@ -10,7 +10,7 @@ else
   version="-1.-1.-1"
 fi
 
-echo "${version}" > changedifferently/version/VERSION
+echo "${version}" > stackdiff/version/VERSION
 rm -rf dist
 python setup.py bdist_wheel
 rm -rf build
