@@ -1,5 +1,5 @@
 .coverage
-changedifferently.egg-info
 coverage.xml
 dist
 htmlcov
+stackdiff.egg-info

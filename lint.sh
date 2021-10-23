@@ -18,5 +18,5 @@ else
 fi
 
 flake8 .
-mypy changedifferently
+mypy stackdiff
 mypy tests

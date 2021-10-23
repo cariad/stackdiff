@@ -2,7 +2,7 @@ from pathlib import Path
 
 from setuptools import setup  # pyright: reportMissingTypeStubs=false
 
-from changedifferently.version import get_version
+from stackdiff.version import get_version
 
 readme_path = Path(__file__).parent / "README.md"
 
@@ -36,21 +36,26 @@ setup(
     author="Cariad Eccleston",
     author_email="cariad@cariad.earth",
     classifiers=classifiers,
-    description="Visualises the changes described by an Amazon Web Services CloudFormation change set",
+    description="Visualises the changes described by an Amazon Web Services CloudFormation stack change set",
+    entry_points={
+        "console_scripts": [
+            "stackdiff=stackdiff.__main__:cli_entry",
+        ],
+    },
     include_package_data=True,
     license="MIT",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    name="changedifferently",
+    name="stackdiff",
     packages=[
-        "changedifferently",
-        "changedifferently.version",
+        "stackdiff",
+        "stackdiff.version",
     ],
     package_data={
-        "changedifferently": ["py.typed"],
-        "changedifferently.version": ["py.typed"],
+        "stackdiff": ["py.typed"],
+        "stackdiff.version": ["py.typed"],
     },
     python_requires=">=3.8",
-    url="https://github.com/cariad/changedifferently",
+    url="https://github.com/cariad/stackdiff",
     version=version,
 )
