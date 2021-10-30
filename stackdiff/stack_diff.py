@@ -80,7 +80,8 @@ class StackDiff:
             rows.append(
                 [
                     color(rc["LogicalResourceId"]).encoded,
-                    color(rc["PhysicalResourceId"]).encoded,
+                    # PhysicalResourceId is not present for additions:
+                    color(rc.get("PhysicalResourceId", "")).encoded,
                     color(rc["ResourceType"]).encoded,
                     color(action).encoded,
                 ]
