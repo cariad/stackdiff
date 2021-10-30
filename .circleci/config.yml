@@ -8,6 +8,7 @@ jobs:
     docker:
       - image: cimg/python:3.10.0
     environment:
+      AWS_DEFAULT_REGION: eu-west-2
       PIPENV_VENV_IN_PROJECT: true
     resource_class: medium
     steps:
