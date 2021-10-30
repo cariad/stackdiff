@@ -2,5 +2,6 @@
 __pycache__
 coverage.xml
 dist
+docsrc/build
 htmlcov
 stackdiff.egg-info

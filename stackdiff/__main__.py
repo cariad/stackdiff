@@ -1,5 +1,6 @@
-from stackdiff.cli import entry
 from sys import argv, stdout
+
+from stackdiff.cli import entry
 
 
 def cli_entry() -> None:

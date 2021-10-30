@@ -5,7 +5,6 @@ from boto3.session import Session
 
 from stackdiff.stack_diff import StackDiff
 from stackdiff.version import get_version
-from ansiscape import heavy
 
 
 def entry(cli_args: List[str], writer: IO[str]) -> int:
@@ -29,8 +28,7 @@ def entry(cli_args: List[str], writer: IO[str]) -> int:
         return 1
 
     cs = StackDiff(change=args.change, session=Session(), stack=args.stack)
-    writer.write(heavy("Template differences:").encoded + "\n\n")
     cs.render_differences(writer)
-    writer.write(heavy("Stack changes:").encoded + "\n\n")
+    writer.write("\n")
     cs.render_changes(writer)
     return 0

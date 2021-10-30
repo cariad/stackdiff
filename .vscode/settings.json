@@ -1,6 +1,8 @@
 {
   "cSpell.words": [
     "epilog",
+    "pyyaml",
     "stackdiff"
-  ]
+  ],
+  "restructuredtext.confPath": "${workspaceFolder}/docsrc/source"
 }
