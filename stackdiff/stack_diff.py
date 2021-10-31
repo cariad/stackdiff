@@ -1,4 +1,5 @@
 from functools import cached_property
+from sys import stdout
 from typing import IO, Optional
 
 from ansiscape import green, heavy, yellow
@@ -57,13 +58,13 @@ class StackDiff:
         )
         return response.get("TemplateBody", "")
 
-    def render_changes(self, writer: IO[str]) -> None:
+    def render_changes(self, writer: Optional[IO[str]] = None) -> None:
         """
         Renders a visualisation of the changes that CloudFormation would apply
         if the change set was executed.
 
         Arguments:
-            writer: Writer
+            writer: Writer (defaults to ``stdout``)
         """
 
         response = self.client.describe_change_set(
@@ -109,18 +110,18 @@ class StackDiff:
             )
 
         t = tabulate(rows, headers="firstrow", tablefmt="plain")
-        writer.write(t + "\n")
+        (writer or stdout).write(t + "\n")
 
-    def render_differences(self, writer: IO[str]) -> None:
+    def render_differences(self, writer: Optional[IO[str]] = None) -> None:
         """
         Renders a visualisation of the differences between the stack's current
         template and the change set's proposed template.
 
         Arguments:
-            writer: Writer
+            writer: Writer (defaults to ``stdout``)
         """
 
-        render(self.stack_template, self.change_template, writer)
+        render(self.stack_template, self.change_template, writer or stdout)
 
     @cached_property
     def stack_template(self) -> str:
